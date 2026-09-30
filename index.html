@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Synthetic demo of the Prosper AI Agent Ops console: benefits verification and scheduling runs, a cited failure with a taxonomy label, a human gate (Retry / Review / Escalate / Pause), and deployment impact. Pre-recorded data only, no real systems.">
+<title>Prosper AI · Benefits &amp; Scheduling Agent Ops (Synthetic Demo)</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#run-queue">Skip to run queue</a>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true">P</span>
+    <span class="brand-name">Prosper AI</span>
+    <span class="brand-sub">Agent Ops console</span>
+  </div>
+  <span class="demo-badge" title="Pre-recorded synthetic data only">Synthetic demo · no real calls</span>
+</header>
+
+<main class="shell">
+  <header class="hero">
+    <p class="eyebrow">AI Product Manager · agent portfolio in production</p>
+    <h1>Benefits &amp; Scheduling Agent Ops</h1>
+    <p class="tagline">A failed benefits or scheduling run surfaces with a cited finding and a failure taxonomy, pauses at a human gate, and shows what it did to the deployment. Everything here is pre-recorded synthetic data. No real phone calls were dialed, no payer or EHR system was touched, and no account exists.</p>
+  </header>
+
+  <section class="card deployment" aria-labelledby="deployment-title">
+    <h2 id="deployment-title" class="section-title"><span class="step-num">1</span> Deployment</h2>
+    <dl class="kv">
+      <div><dt>Customer</dt><dd>Cedar Health · flagship primary care group</dd></div>
+      <div><dt>Site</dt><dd>Downtown Family Medicine · Seattle, WA</dd></div>
+      <div><dt>Live Blueprints</dt><dd>Benefits Verification v12 · Scheduling v7 · live 3 weeks</dd></div>
+      <div><dt>Portfolio</dt><dd>1 of 6 deployments you own · $412K deployment ARR</dd></div>
+    </dl>
+    <p class="deploy-status"><span class="pill pill-live" id="deploy-live-pill">2 agents live</span><span class="pill pill-flagged" id="deploy-flagged-pill">3 flagged runs</span></p>
+  </section>
+
+  <section class="card queue" aria-labelledby="queue-title">
+    <h2 id="queue-title" class="section-title"><span class="step-num">2</span> Run queue <span class="muted-inline">· today</span></h2>
+    <div id="run-queue" class="queue-list"></div>
+  </section>
+
+  <section id="packet" class="card hidden" aria-labelledby="packet-title" tabindex="-1">
+    <div class="packet-head">
+      <div>
+        <h2 id="packet-title">Run packet</h2>
+        <p class="packet-run-id" id="packet-run-id"></p>
+      </div>
+      <span class="pill" id="packet-status-pill"></span>
+    </div>
+
+    <div class="packet-grid">
+      <div class="packet-col">
+        <section aria-labelledby="summary-title">
+          <h3 id="summary-title" class="block-title">Call / run summary</h3>
+          <dl class="kv kv-compact" id="packet-summary"></dl>
+        </section>
+
+        <section aria-labelledby="taxonomy-title">
+          <h3 id="taxonomy-title" class="block-title">Failure taxonomy</h3>
+          <div id="taxonomy-chips" class="chip-row"></div>
+          <p class="taxonomy-note" id="taxonomy-note"></p>
+        </section>
+      </div>
+
+      <div class="packet-col">
+        <section aria-labelledby="cited-title">
+          <h3 id="cited-title" class="block-title">Cited finding</h3>
+          <ol class="transcript" id="transcript-list"></ol>
+          <div class="missing-step" id="missing-step-box"></div>
+        </section>
+
+        <section aria-labelledby="gate-title">
+          <h3 id="gate-title" class="block-title">Human gate</h3>
+          <p class="gate-hint">No retry, review, or pause happens until an Agent Manager picks a gate. QA issues carry a 2-hour SLA.</p>
+          <div id="gate-buttons" class="gate-buttons"></div>
+          <div id="resolution" class="hidden" aria-live="polite"></div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section class="card impact" aria-labelledby="impact-title">
+    <h2 id="impact-title" class="section-title"><span class="step-num">3</span> Deployment impact</h2>
+    <div class="impact-strip">
+      <div class="impact-chip"><span class="impact-label">QA accuracy</span><span class="impact-value" id="impact-qa">98.1%</span><span class="impact-sub">30-day · this site</span></div>
+      <div class="impact-chip"><span class="impact-label">Containment</span><span class="impact-value" id="impact-contain">91%</span><span class="impact-sub">calls resolved without human help</span></div>
+      <div class="impact-chip"><span class="impact-label">SLA</span><span class="impact-value" id="impact-sla">0 runs past 2h</span><span class="impact-sub" id="impact-sla-sub">3 flagged · 0 escalated</span></div>
+    </div>
+    <p class="impact-message" id="impact-message" aria-live="polite">All live Blueprints cleared QA today. One benefits writeback is flagged (BV-24815): the deployment is healthy, this run is the exception.</p>
+    <p class="impact-footnote">Metrics are synthetic. They show the one-line impact read an Agent Manager gets after a gate decision.</p>
+  </section>
+</main>
+
+<footer class="shell">
+  <p>Prototype for a Product Manager interview walkthrough. Branding and vocabulary follow Prosper AI's public Blueprints / benefits verification / EHR writeback language; no signed-in Prosper surface was copied. No model runs in this browser; every run is pre-recorded.</p>
+  <button id="reset" class="button button-primary" type="button">Reset demo</button>
+</footer>
+
+<div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+<script src="app.js"></script>
+</body>
+</html>
